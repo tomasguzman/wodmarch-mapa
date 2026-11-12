@@ -1,0 +1,313 @@
+{
+ "generado": "2026-11-12T20:59:31Z",
+ "lugares": [
+  {
+   "id": "4168c70a70bd81ffa56fdf5ba3a0b41b",
+   "nombre": "Abbey Mills, Londres · Las ratas bajo nuestros pies",
+   "tipo": "Misión",
+   "faccion": "",
+   "bando": "",
+   "precision": "aproximada",
+   "lat": 51.532,
+   "lon": -0.004,
+   "notion": "https://app.notion.com/p/Abbey-Mills-Londres-Las-ratas-bajo-nuestros-pies-4168c70a70bd81ffa56fdf5ba3a0b41b"
+  },
+  {
+   "id": "4168c70a70bd818fb49fda7bfe5c9e23",
+   "nombre": "Andeer · La piste d'argent",
+   "tipo": "Misión",
+   "faccion": "",
+   "bando": "",
+   "precision": "exacta",
+   "lat": 46.6033,
+   "lon": 9.4264,
+   "notion": "https://app.notion.com/p/Andeer-La-piste-d-argent-4168c70a70bd818fb49fda7bfe5c9e23"
+  },
+  {
+   "id": "4168c70a70bd81bda705fe3538336268",
+   "nombre": "Bärengraben",
+   "tipo": "Escena",
+   "faccion": "",
+   "bando": "",
+   "precision": "exacta",
+   "lat": 46.948,
+   "lon": 7.4597,
+   "notion": "https://app.notion.com/p/B-rengraben-4168c70a70bd81bda705fe3538336268"
+  },
+  {
+   "id": "4168c70a70bd8156bfb7c19dbdd7959f",
+   "nombre": "Barrios de renta baja",
+   "tipo": "Escena",
+   "faccion": "",
+   "bando": "",
+   "precision": "por definir",
+   "lat": 46.9463,
+   "lon": 7.4508,
+   "notion": "https://app.notion.com/p/Barrios-de-renta-baja-4168c70a70bd8156bfb7c19dbdd7959f"
+  },
+  {
+   "id": "4168c70a70bd81988ca0f759a148c63b",
+   "nombre": "Base Birmingham",
+   "tipo": "Base",
+   "faccion": "OFP",
+   "bando": "neutro",
+   "precision": "por definir",
+   "lat": 52.4862,
+   "lon": -1.8904,
+   "notion": "https://app.notion.com/p/Base-Birmingham-4168c70a70bd81988ca0f759a148c63b"
+  },
+  {
+   "id": "4168c70a70bd814db64ac702392e027f",
+   "nombre": "Basilea · Operación Ausencia",
+   "tipo": "Misión",
+   "faccion": "",
+   "bando": "",
+   "precision": "aproximada",
+   "lat": 47.5596,
+   "lon": 7.5886,
+   "notion": "https://app.notion.com/p/Basilea-Operaci-n-Ausencia-4168c70a70bd814db64ac702392e027f"
+  },
+  {
+   "id": "4168c70a70bd8107a4a7f092ab1b95bb",
+   "nombre": "Café \"Einstein\"",
+   "tipo": "Escena",
+   "faccion": "",
+   "bando": "",
+   "precision": "por definir",
+   "lat": 46.9478,
+   "lon": 7.45,
+   "notion": "https://app.notion.com/p/Caf-Einstein-4168c70a70bd8107a4a7f092ab1b95bb"
+  },
+  {
+   "id": "4168c70a70bd81de9434de1f33bdc46d",
+   "nombre": "Casa de campo en el bosque",
+   "tipo": "Escena",
+   "faccion": "",
+   "bando": "",
+   "precision": "por definir",
+   "lat": 46.965,
+   "lon": 7.41,
+   "notion": "https://app.notion.com/p/Casa-de-campo-en-el-bosque-4168c70a70bd81de9434de1f33bdc46d"
+  },
+  {
+   "id": "4168c70a70bd815caeafe6fe4bba2fa0",
+   "nombre": "Castillo Alto de Zizers",
+   "tipo": "Refugio",
+   "faccion": "",
+   "bando": "vampiros",
+   "precision": "aproximada",
+   "lat": 46.9363,
+   "lon": 9.565,
+   "notion": "https://app.notion.com/p/Castillo-Alto-de-Zizers-4168c70a70bd815caeafe6fe4bba2fa0"
+  },
+  {
+   "id": "4168c70a70bd81edb34cc9e0b05f8d28",
+   "nombre": "Castillo Bajo de Zizers (San Johannesstift)",
+   "tipo": "Refugio",
+   "faccion": "",
+   "bando": "vampiros",
+   "precision": "aproximada",
+   "lat": 46.9333,
+   "lon": 9.5625,
+   "notion": "https://app.notion.com/p/Castillo-Bajo-de-Zizers-San-Johannesstift-4168c70a70bd81edb34cc9e0b05f8d28"
+  },
+  {
+   "id": "4168c70a70bd81a3bfcce69418bcdc46",
+   "nombre": "Castillo de Bran · Llamado de Emergencia",
+   "tipo": "Misión",
+   "faccion": "",
+   "bando": "",
+   "precision": "exacta",
+   "lat": 45.5149,
+   "lon": 25.3672,
+   "notion": "https://app.notion.com/p/Castillo-de-Bran-Llamado-de-Emergencia-4168c70a70bd81a3bfcce69418bcdc46"
+  },
+  {
+   "id": "4168c70a70bd814288e2e6e1016b66ae",
+   "nombre": "Centro de Berna",
+   "tipo": "Escena",
+   "faccion": "",
+   "bando": "",
+   "precision": "exacta",
+   "lat": 46.9479,
+   "lon": 7.4474,
+   "notion": "https://app.notion.com/p/Centro-de-Berna-4168c70a70bd814288e2e6e1016b66ae"
+  },
+  {
+   "id": "4168c70a70bd819ba137f637d6b9cdf8",
+   "nombre": "Elíseo de Berna",
+   "tipo": "Elíseo",
+   "faccion": "",
+   "bando": "neutro",
+   "precision": "por definir",
+   "lat": 46.9437,
+   "lon": 7.4497,
+   "notion": "https://app.notion.com/p/El-seo-de-Berna-4168c70a70bd819ba137f637d6b9cdf8"
+  },
+  {
+   "id": "4168c70a70bd8116bca0ccb39b5752b8",
+   "nombre": "Hostal de Bletchley · Ghost in the Machine",
+   "tipo": "Escena",
+   "faccion": "",
+   "bando": "",
+   "precision": "aproximada",
+   "lat": 51.9973,
+   "lon": -0.74,
+   "notion": "https://app.notion.com/p/Hostal-de-Bletchley-Ghost-in-the-Machine-4168c70a70bd8116bca0ccb39b5752b8"
+  },
+  {
+   "id": "4168c70a70bd812db4b9c08416fe805f",
+   "nombre": "Iglesia de San Pedro y San Pablo",
+   "tipo": "Escena",
+   "faccion": "",
+   "bando": "",
+   "precision": "exacta",
+   "lat": 46.9486,
+   "lon": 7.4529,
+   "notion": "https://app.notion.com/p/Iglesia-de-San-Pedro-y-San-Pablo-4168c70a70bd812db4b9c08416fe805f"
+  },
+  {
+   "id": "4168c70a70bd81d8b4dfcbc75fd9de54",
+   "nombre": "Londres · Blackouts",
+   "tipo": "Misión",
+   "faccion": "",
+   "bando": "",
+   "precision": "por definir",
+   "lat": 51.5074,
+   "lon": -0.1278,
+   "notion": "https://app.notion.com/p/Londres-Blackouts-4168c70a70bd81d8b4dfcbc75fd9de54"
+  },
+  {
+   "id": "4168c70a70bd8168a5f2d3e0279e7124",
+   "nombre": "Mansión de Ingmar Airaldi",
+   "tipo": "Domicilio",
+   "faccion": "",
+   "bando": "vampiros",
+   "precision": "por definir",
+   "lat": 46.942,
+   "lon": 7.456,
+   "notion": "https://app.notion.com/p/Mansi-n-de-Ingmar-Airaldi-4168c70a70bd8168a5f2d3e0279e7124"
+  },
+  {
+   "id": "4168c70a70bd8114b143c11f75727f1d",
+   "nombre": "Municipalidad de Berna (Rathaus)",
+   "tipo": "Escena",
+   "faccion": "",
+   "bando": "",
+   "precision": "exacta",
+   "lat": 46.9491,
+   "lon": 7.4515,
+   "notion": "https://app.notion.com/p/Municipalidad-de-Berna-Rathaus-4168c70a70bd8114b143c11f75727f1d"
+  },
+  {
+   "id": "4168c70a70bd81a9896fd3488400c239",
+   "nombre": "Oficina Federal de Preservación (OFP)",
+   "tipo": "Sede",
+   "faccion": "OFP",
+   "bando": "neutro",
+   "precision": "por definir",
+   "lat": 46.933,
+   "lon": 7.45,
+   "notion": "https://app.notion.com/p/Oficina-Federal-de-Preservaci-n-OFP-4168c70a70bd81a9896fd3488400c239"
+  },
+  {
+   "id": "4168c70a70bd814ab8eec997922be665",
+   "nombre": "Palacio Federal",
+   "tipo": "Escena",
+   "faccion": "",
+   "bando": "",
+   "precision": "exacta",
+   "lat": 46.9466,
+   "lon": 7.4443,
+   "notion": "https://app.notion.com/p/Palacio-Federal-4168c70a70bd814ab8eec997922be665"
+  },
+  {
+   "id": "4168c70a70bd81e1b1aff41212408d4f",
+   "nombre": "París · Francia Libre",
+   "tipo": "Misión",
+   "faccion": "",
+   "bando": "",
+   "precision": "por definir",
+   "lat": 48.8566,
+   "lon": 2.3522,
+   "notion": "https://app.notion.com/p/Par-s-Francia-Libre-4168c70a70bd81e1b1aff41212408d4f"
+  },
+  {
+   "id": "4168c70a70bd81c98094c60978dff3af",
+   "nombre": "Rosengarten",
+   "tipo": "Escena",
+   "faccion": "",
+   "bando": "",
+   "precision": "exacta",
+   "lat": 46.9518,
+   "lon": 7.4604,
+   "notion": "https://app.notion.com/p/Rosengarten-4168c70a70bd81c98094c60978dff3af"
+  },
+  {
+   "id": "4168c70a70bd8108b980c16dd6e821b4",
+   "nombre": "Sanatorio de Leysin · La casa de los raros",
+   "tipo": "Misión",
+   "faccion": "",
+   "bando": "",
+   "precision": "exacta",
+   "lat": 46.3425,
+   "lon": 7.013,
+   "notion": "https://app.notion.com/p/Sanatorio-de-Leysin-La-casa-de-los-raros-4168c70a70bd8108b980c16dd6e821b4"
+  },
+  {
+   "id": "4168c70a70bd81a29fcbc2d0eaa1dec1",
+   "nombre": "Sede de las Casas nobles y el Bateau-Noir",
+   "tipo": "Sede",
+   "faccion": "Casas nobles (hunters) + Bateu Noir",
+   "bando": "cazadores",
+   "precision": "por definir",
+   "lat": 46.8961,
+   "lon": 8.2464,
+   "notion": "https://app.notion.com/p/Sede-de-las-Casas-nobles-y-el-Bateau-Noir-4168c70a70bd81a29fcbc2d0eaa1dec1"
+  },
+  {
+   "id": "4168c70a70bd8144867befa79ec9c049",
+   "nombre": "Sidi Barrani · Stardust Cruzaders",
+   "tipo": "Misión",
+   "faccion": "",
+   "bando": "",
+   "precision": "exacta",
+   "lat": 31.6106,
+   "lon": 25.9256,
+   "notion": "https://app.notion.com/p/Sidi-Barrani-Stardust-Cruzaders-4168c70a70bd8144867befa79ec9c049"
+  },
+  {
+   "id": "4168c70a70bd81c2a972d4ec62316dfa",
+   "nombre": "Victoria Tunnel, Newcastle · El mal acecha bajo tierra",
+   "tipo": "Misión",
+   "faccion": "",
+   "bando": "",
+   "precision": "aproximada",
+   "lat": 54.973,
+   "lon": -1.593,
+   "notion": "https://app.notion.com/p/Victoria-Tunnel-Newcastle-El-mal-acecha-bajo-tierra-4168c70a70bd81c2a972d4ec62316dfa"
+  },
+  {
+   "id": "4168c70a70bd81a3ae64e5edbccd1373",
+   "nombre": "Whitechapel, Londres · La danza antes de la tormenta",
+   "tipo": "Misión",
+   "faccion": "",
+   "bando": "",
+   "precision": "aproximada",
+   "lat": 51.5155,
+   "lon": -0.061,
+   "notion": "https://app.notion.com/p/Whitechapel-Londres-La-danza-antes-de-la-tormenta-4168c70a70bd81a3ae64e5edbccd1373"
+  },
+  {
+   "id": "4168c70a70bd81f29513e59f7f354a2d",
+   "nombre": "Zug · Fuego de infierno",
+   "tipo": "Misión",
+   "faccion": "",
+   "bando": "",
+   "precision": "por definir",
+   "lat": 47.1662,
+   "lon": 8.5155,
+   "notion": "https://app.notion.com/p/Zug-Fuego-de-infierno-4168c70a70bd81f29513e59f7f354a2d"
+  }
+ ]
+}

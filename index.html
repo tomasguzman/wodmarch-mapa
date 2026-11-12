@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mapa de Wodmarch</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+  :root {
+    --bg: #0d0b0b;
+    --panel: rgba(18, 14, 14, .92);
+    --ink: #e8e0d4;
+    --muted: #a79d92;
+    --accent: #a8242c;
+    --line: rgba(232, 224, 212, .18);
+    /* Leyenda de Alonso (mapa_control_sobrenatural_suiza.png) */
+    --vampiros: #c4746c;
+    --magos: #5494a4;
+    --cazadores: #c4a454;
+    --neutro: #4c4c44;
+    --sin: #d8d2c4;
+  }
+  html, body { height: 100%; margin: 0; background: var(--bg); color: var(--ink);
+    font: 14px/1.35 Georgia, "Times New Roman", serif; }
+  #map { position: absolute; inset: 0; background: var(--bg); }
+  .panel { position: absolute; z-index: 1000; left: 10px; top: 10px; max-width: calc(100% - 20px);
+    width: 250px; box-sizing: border-box; background: var(--panel); border: 1px solid var(--line);
+    border-left: 3px solid var(--accent); border-radius: 4px; padding: 10px 12px; }
+  .panel h1 { font-size: 15px; margin: 0 0 8px; letter-spacing: .04em; font-variant: small-caps; }
+  .panel summary { cursor: pointer; list-style: none; }
+  .panel summary::-webkit-details-marker { display: none; }
+  .panel summary h1 { display: inline; }
+  .panel summary::after { content: "▾"; float: right; color: var(--muted); }
+  .panel details:not([open]) summary::after { content: "▸"; }
+  .row { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
+  .row label { cursor: pointer; }
+  input[type=range] { width: 100%; accent-color: var(--accent); }
+  input[type=checkbox] { accent-color: var(--accent); width: 16px; height: 16px; }
+  .legend { margin: 8px 0 0; padding: 8px 0 0; border-top: 1px solid var(--line); }
+  .sw { width: 12px; height: 12px; border-radius: 50%; border: 1.5px solid var(--ink); flex: none; }
+  .credit { color: var(--muted); font-size: 12px; margin-top: 8px; }
+  .views { display: flex; gap: 6px; margin-top: 8px; }
+  .views button { flex: 1; background: transparent; color: var(--ink); border: 1px solid var(--line);
+    border-radius: 3px; padding: 6px 0; font: inherit; cursor: pointer; }
+  .views button:hover { border-color: var(--accent); }
+  .leaflet-popup-content-wrapper, .leaflet-popup-tip { background: var(--panel); color: var(--ink);
+    border: 1px solid var(--line); }
+  .leaflet-popup-content { margin: 10px 12px; font: 14px/1.35 Georgia, serif; }
+  .osm-dark { filter: invert(1) hue-rotate(180deg) brightness(.9) contrast(.9) saturate(.35); }
+  .pop-name { font-weight: bold; font-size: 15px; }
+  .pop-meta { color: var(--muted); margin: 2px 0 6px; }
+  .pop a { color: #e0a4a0; }
+  .leaflet-container a.leaflet-popup-close-button { color: var(--muted); }
+  .leaflet-control-attribution { background: rgba(13, 11, 11, .75) !important; color: var(--muted); }
+  .leaflet-control-attribution a { color: #c9bfb3; }
+  .leaflet-tooltip.lbl { background: var(--panel); color: var(--ink); border: 1px solid var(--line);
+    box-shadow: none; font: 12px Georgia, serif; }
+  @media (max-width: 480px) {
+    .panel { width: auto; right: 56px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+<div id="map" role="application" aria-label="Mapa de Wodmarch"></div>
+<div class="panel">
+  <details id="panel-details" open>
+    <summary><h1>Wodmarch · Suiza 1940</h1></summary>
+    <div class="row">
+      <input type="checkbox" id="alonso" checked>
+      <label for="alonso">Control sobrenatural (Alonso)</label>
+    </div>
+    <div class="row">
+      <input type="range" id="opacity" min="0" max="100" value="55" aria-label="Opacidad del mapa de Alonso">
+    </div>
+    <div class="legend" id="legend"></div>
+    <div class="views">
+      <button type="button" data-view="berna">Berna</button>
+      <button type="button" data-view="suiza">Suiza</button>
+      <button type="button" data-view="europa">Europa</button>
+    </div>
+    <div class="credit">Mapa de control: Alonso (Discord, 11-11-2026).</div>
+  </details>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+(function () {
+  "use strict";
+  var BANDOS = {
+    vampiros: { label: "Vampiros", color: "#c4746c" },
+    magos: { label: "Magos", color: "#5494a4" },
+    cazadores: { label: "Cazadores", color: "#c4a454" },
+    neutro: { label: "Neutro", color: "#4c4c44" },
+    "": { label: "Sin facción", color: "#d8d2c4" }
+  };
+  // Calco de Alonso reproyectado a Web Mercator (ver plan, fase 1).
+  var ALONSO_BOUNDS = [[45.71712, 5.92907], [47.81269, 10.52555]];
+  var VIEWS = {
+    berna: [[46.928, 7.425], [46.958, 7.47]],
+    suiza: [[45.80, 5.95], [47.82, 10.50]],
+    europa: [[30.5, -3.0], [55.5, 27.0]]
+  };
+
+  var map = L.map("map", { zoomControl: false, zoomSnap: 0.25, minZoom: 3, maxZoom: 17 });
+  L.control.zoom({ position: "topright" }).addTo(map);
+  map.fitBounds(VIEWS.suiza);
+
+  // Fondo: OpenStreetMap estándar oscurecido con un filtro CSS (sin API key ni cuenta).
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 17, maxNativeZoom: 19, className: "osm-dark",
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'
+  }).addTo(map);
+
+  var alonso = L.imageOverlay("assets/alonso_control_1940_merc.png", ALONSO_BOUNDS, {
+    opacity: 0.55, interactive: false,
+    attribution: "Control sobrenatural 1940: Alonso"
+  }).addTo(map);
+
+  var chk = document.getElementById("alonso");
+  var rng = document.getElementById("opacity");
+  chk.addEventListener("change", function () {
+    if (chk.checked) { alonso.addTo(map); } else { map.removeLayer(alonso); }
+    rng.disabled = !chk.checked;
+  });
+  rng.addEventListener("input", function () { alonso.setOpacity(rng.value / 100); });
+
+  // Leyenda: colores del mapa de Alonso + "sin facción".
+  var legend = document.getElementById("legend");
+  Object.keys(BANDOS).forEach(function (k) {
+    var row = document.createElement("div"); row.className = "row";
+    var sw = document.createElement("span"); sw.className = "sw"; sw.style.background = BANDOS[k].color;
+    var tx = document.createElement("span"); tx.textContent = BANDOS[k].label;
+    row.appendChild(sw); row.appendChild(tx); legend.appendChild(row);
+  });
+
+  document.querySelectorAll(".views button").forEach(function (b) {
+    b.addEventListener("click", function () { map.fitBounds(VIEWS[b.dataset.view]); });
+  });
+  // En pantallas chicas o embeds bajos (iframe de Notion) el panel parte cerrado.
+  if (window.matchMedia("(max-width: 700px), (max-height: 520px)").matches) {
+    document.getElementById("panel-details").removeAttribute("open");
+  }
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e;
+  }
+  function popup(p) {
+    var box = el("div", "pop");
+    box.appendChild(el("div", "pop-name", p.nombre));
+    var meta = [p.tipo, p.faccion].filter(Boolean).join(" · ");
+    if (meta) box.appendChild(el("div", "pop-meta", meta));
+    var prec = { aproximada: "Ubicación aproximada", "por definir": "Ubicación tentativa" }[p.precision];
+    if (prec) box.appendChild(el("div", "pop-meta", prec));
+    if (p.notion && /^https:\/\/(www\.)?notion\.(so|site)\//.test(p.notion)) {
+      var a = el("a", "", "Ver ficha en Notion");
+      a.href = p.notion; a.target = "_blank"; a.rel = "noopener noreferrer";
+      box.appendChild(a);
+    }
+    return box;
+  }
+
+  var pins = L.layerGroup().addTo(map);
+  fetch("places.json", { cache: "no-cache" })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (data) {
+      (data.lugares || []).forEach(function (p) {
+        if (typeof p.lat !== "number" || typeof p.lon !== "number") return;
+        var b = BANDOS[p.bando] || BANDOS[""];
+        L.circleMarker([p.lat, p.lon], {
+          radius: 8, color: "#e8e0d4", weight: 1.5, fillColor: b.color, fillOpacity: 0.95
+        }).bindPopup(popup(p)).bindTooltip(p.nombre, { className: "lbl", direction: "top", offset: [0, -8] })
+          .addTo(pins);
+      });
+    })
+    .catch(function (e) { console.error("places.json:", e); });
+})();
+</script>
+</body>
+</html>
